@@ -152,5 +152,24 @@ def add_transaction():
         return render_template('home.html', error="Transaction recorded")
     return render_template('add_transaction.html', form=form, error = "Nil")
 
+@app.route('/customize', methods=['GET','POST'])
+def add_customization():
+    form = Customize();
+    useremail = request.cookies.get('email')
+    if form.validate_on_submit():
+        name = form.name.data
+        budget = form.budget.data
+        total_spent = form.total_spent.data
+        phone = form.phone.data
+        profession = form.profession.data
+        alert = form.alert.data
+        insert_user_customize(useremail, name, budget, total_spent, phone, profession, alert)
+        return render_template('home.html', error="Customization set successfully")
+    return render_template('customize.html', form=form)
+ 
+    
+@app.route('/view_transaction', methods=['GET','POST'])
+def view_transaction():
+    return render_template('view_transaction.html',fetch_user_transactions= fetch_user_transactions)
 
 app.run("0.0.0.0", 5000,debug=True)
