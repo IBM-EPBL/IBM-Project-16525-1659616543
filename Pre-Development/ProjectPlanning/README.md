@@ -3,4 +3,4 @@ This folder contains
    - Milestone & Activity List and Sprint Delivery Plan
 
 - JIRA Files
-  - **Planning Roadmap** Screenshot of personal expense tracker project created in **jira**
+  - Roadmap, Burndown and Backlog of Sprint 1,2,3
